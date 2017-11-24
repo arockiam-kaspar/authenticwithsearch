@@ -27,7 +27,6 @@ export default class LoginPage extends Component {
 	componentWillMount() {
 	    user.user.login
 	    .then((res)=>{
-	    	//if(typeof console!=="undefined"){console.log(res)}
 	    	this.setState({
 	    		records: res.data.results,
 	    		loading: false
@@ -53,12 +52,13 @@ export default class LoginPage extends Component {
 				return isvalid;
 			}
 		});
-		console.log("isvalid", isvalid);
 		if(isvalid){
 			localStorage.isAuthenticated="true";
 			this.props.history.push("/search");
 		}else{
-			errors.username ="Invalid credentials";
+			if(data.username!==""){
+				errors.username ="Invalid credentials";
+			}
 			this.setState({
 				loading: false,
 				errors

@@ -45,7 +45,7 @@ input[type=submit] {
 	border-top: 1px solid #ccc;
 }
 .loading:before{
-	background: url('./spinner.gif') no-repeat;
+	background: url('./img/spinner.gif') no-repeat;
 	background-position: center center;
 	z-index: 999;
 	content: "";
